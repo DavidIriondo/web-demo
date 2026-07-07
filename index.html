@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>Itinerario Norte de España ❤️</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { font-family: 'Quicksand', sans-serif; box-sizing: border-box; }
+    body {
+      background: linear-gradient(180deg, #fef3e2 0%, #fce4d6 30%, #f8d5c0 60%, #fce4d6 100%);
+      min-height: 100vh;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(180, 100, 60, 0.12);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(180, 100, 60, 0.2);
+    }
+    .day-badge {
+      background: linear-gradient(135deg, #e8a87c, #d4865b);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: white;
+      display: inline-block;
+      letter-spacing: 0.5px;
+    }
+    .cat-sticker {
+      display: inline-block;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+      transition: transform 0.3s ease;
+    }
+    .cat-sticker:hover {
+      transform: scale(1.15) rotate(-5deg);
+    }
+    .section-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .section-img-sm {
+      height: 160px;
+    }
+    @media (min-width: 768px) {
+      .section-img { height: 280px; }
+      .section-img-sm { height: 220px; }
+    }
+    .floating-cats {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.15;
+      font-size: 5rem;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .floating-cats span {
+      position: absolute;
+      animation: floatCat 20s infinite linear;
+    }
+    @keyframes floatCat {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+    .btn-heart {
+      background: linear-gradient(135deg, #f59e7b, #e8825d);
+      box-shadow: 0 4px 16px rgba(232, 130, 93, 0.3);
+    }
+    .btn-heart:hover {
+      box-shadow: 0 6px 24px rgba(232, 130, 93, 0.45);
+      transform: scale(1.02);
+    }
+    .divider {
+      background: linear-gradient(90deg, transparent, #e8a87c, transparent);
+      height: 2px;
+      width: 60%;
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+    .text-cozy {
+      color: #8b5a3c;
+    }
+    .bg-cozy {
+      background: linear-gradient(135deg, #fce4d6, #f8d5c0);
+    }
+  </style>
+</head>
+<body class="relative">
+
+  <div class="floating-cats">
+    <span style="left:5%; animation-delay:0s; animation-duration:25s;">🐱</span>
+    <span style="left:20%; animation-delay:4s; animation-duration:22s;">😸</span>
+    <span style="left:40%; animation-delay:8s; animation-duration:28s;">😺</span>
+    <span style="left:60%; animation-delay:3s; animation-duration:24s;">🐈</span>
+    <span style="left:80%; animation-delay:10s; animation-duration:26s;">😻</span>
+    <span style="left:90%; animation-delay:6s; animation-duration:23s;">🐱</span>
+    <span style="left:15%; animation-delay:14s; animation-duration:27s;">😽</span>
+    <span style="left:70%; animation-delay:18s; animation-duration:21s;">🙀</span>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 py-8 md:py-12 relative z-10">
+
+    <!-- HEADER -->
+    <header class="text-center mb-8 md:mb-12">
+      <div class="text-6xl md:text-7xl mb-4 cat-sticker">🐱</div>
+      <h1 class="text-3xl md:text-5xl font-bold text-cozy leading-tight drop-shadow-sm">
+        ¿Damos una vuelta<br/>por el norte de España?
+      </h1>
+      <p class="text-base md:text-lg text-cozy/70 mt-3 font-medium">
+        7 días · Bilbao · Cantabria · Aventura
+      </p>
+      <p class="text-sm text-cozy/50 mt-1">Para la persona más especial del mundo ❤️</p>
+
+      <div class="mt-6 grid grid-cols-7 gap-1 max-w-xs mx-auto">
+        <div class="text-center">
+          <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#e8a87c] text-white flex items-center justify-center text-xs md:text-sm font-bold mx-auto">31</div>
+          <span class="text-[10px] md:text-xs text-cozy/60">Lun</span>
+        </div>
+        <div class="text-center">
+          <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#d4865b] text-white flex items-center justify-center text-xs md:text-sm font-bold mx-auto">01</div>
+          <span class="text-[10px] md:text-xs text-cozy/60">Mar</span>
+        </div>
+        <div class="text-center">
+          <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#d4865b] text-white flex items-center justify-center text-xs md:text-sm font-bold mx-auto">02</div>
+          <span class="text-[10px] md:text-xs text-cozy/60">Mié</span>
+        </div>
+        <div class="text-center">
+          <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#d4865b] text-white flex items-center justify-center text-xs md:text-sm font-bold mx-auto">03</div>
+          <span class="text-[10px] md:text-xs text-cozy/60">Jue</span>
+        </div>
+        <div class="text-center">
+          <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#d4865b] text-white flex items-center justify-center text-xs md:text-sm font-bold mx-auto">04</div>
+          <span class="text-[10px] md:text-xs text-cozy/60">Vie</span>
+        </div>
+        <div class="text-center">
+          <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#d4865b] text-white flex items-center justify-center text-xs md:text-sm font-bold mx-auto">05</div>
+          <span class="text-[10px] md:text-xs text-cozy/60">Sáb</span>
+        </div>
+        <div class="text-center">
+          <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#e8a87c] text-white flex items-center justify-center text-xs md:text-sm font-bold mx-auto">06</div>
+          <span class="text-[10px] md:text-xs text-cozy/60">Dom</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- DÍA 1 - LUNES 31 AGO -->
+    <section class="card p-5 md:p-8 mb-6 md:mb-8">
+      <div class="flex items-center justify-between mb-3">
+        <span class="day-badge">Día 1 · Lun 31 Ago</span>
+        <span class="cat-sticker text-2xl">😺</span>
+      </div>
+      <h2 class="text-xl md:text-2xl font-bold text-cozy mb-1">¡Bienvenidos a Bilbao!</h2>
+      <p class="text-sm text-cozy/50 mb-4">Llegada · Casco Viejo · Pintxos</p>
+
+      <div class="relative mb-4">
+        <img
+          class="section-img"
+          src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1b0?w=800&q=80"
+          alt="Bilbao Casco Viejo"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="space-y-3 text-cozy/80 text-sm md:text-base leading-relaxed">
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">✈️</span>
+          <span><strong>Vuelo a Bilbao</strong> — Llegada desde Madrid. Check-in en el hotel.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🚶</span>
+          <span><strong>Tarde de paseo</strong> — Recorrido a pie por las Siete Calles del Casco Viejo de Bilbao.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🍤</span>
+          <span><strong>Cena de pintxos</strong> — A disfrutar tranquilos de la gastronomía vasca.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🛌</span>
+          <span><strong>Noche en el hotel</strong> de Bilbao.</span>
+        </p>
+      </div>
+
+      <div class="mt-4 flex justify-end">
+        <span class="cat-sticker text-3xl">🍤</span>
+      </div>
+    </section>
+
+    <!-- DÍA 2 - MARTES 01 SEP -->
+    <section class="card p-5 md:p-8 mb-6 md:mb-8">
+      <div class="flex items-center justify-between mb-3">
+        <span class="day-badge">Día 2 · Mar 01 Sep</span>
+        <span class="cat-sticker text-2xl">🐈</span>
+      </div>
+      <h2 class="text-xl md:text-2xl font-bold text-cozy mb-1">Gaztelugatxe & Bermeo</h2>
+      <p class="text-sm text-cozy/50 mb-4">Camper · Costa vasca · Urdaibai</p>
+
+      <div class="grid grid-cols-2 gap-3 mb-4">
+        <img
+          class="section-img section-img-sm"
+          src="https://images.unsplash.com/photo-1591115765373-52077643f9e5?w=600&q=80"
+          alt="San Juan de Gaztelugatxe"
+          loading="lazy"
+        />
+        <img
+          class="section-img section-img-sm"
+          src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?w=600&q=80"
+          alt="Bermeo"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="space-y-3 text-cozy/80 text-sm md:text-base leading-relaxed">
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🚐</span>
+          <span><strong>Mañana:</strong> Recogida de la <strong>camper</strong> en Bilbao y rumbo a San Juan de Gaztelugatxe (45 min).</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">⛰️</span>
+          <span><strong>Caminata costera</strong> por el puente de piedra zigzagueante de <strong>241 escalones</strong> hasta la ermita del islote.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">⛵</span>
+          <span><strong>Tarde:</strong> Conducción de 15 min hasta <strong>Bermeo</strong>. Paseo por su Puerto Viejo, casas de colores y descanso frente a los barcos.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🌿</span>
+          <span><strong>Pernocta</strong> en la naturaleza de la <strong>Reserva de Urdaibai</strong>.</span>
+        </p>
+      </div>
+
+      <div class="mt-4 flex justify-end gap-2">
+        <span class="cat-sticker text-2xl">🌊</span>
+        <span class="cat-sticker text-2xl">🐱</span>
+      </div>
+    </section>
+
+    <!-- DÍA 3 - MIÉRCOLES 02 SEP -->
+    <section class="card p-5 md:p-8 mb-6 md:mb-8">
+      <div class="flex items-center justify-between mb-3">
+        <span class="day-badge">Día 3 · Mié 02 Sep</span>
+        <span class="cat-sticker text-2xl">😸</span>
+      </div>
+      <h2 class="text-xl md:text-2xl font-bold text-cozy mb-1">Castro Urdiales & Santander</h2>
+      <p class="text-sm text-cozy/50 mb-4">Cantabria · Magdalena · Bahía</p>
+
+      <div class="grid grid-cols-2 gap-3 mb-4">
+        <img
+          class="section-img section-img-sm"
+          src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=600&q=80"
+          alt="Castro Urdiales"
+          loading="lazy"
+        />
+        <img
+          class="section-img section-img-sm"
+          src="https://images.unsplash.com/photo-1598897992529-4193a9750c86?w=600&q=80"
+          alt="Palacio de la Magdalena"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="space-y-3 text-cozy/80 text-sm md:text-base leading-relaxed">
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🚐</span>
+          <span><strong>Mañana:</strong> Viaje a Cantabria hasta <strong>Castro Urdiales</strong> (1 hora desde Urdaibai).</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🏰</span>
+          <span>Visita al <strong>conjunto monumental</strong> a pie de mar: iglesia gótica de Santa María, castillo-faro medieval, puente romano y caminata junto al rompeolas.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🏖️</span>
+          <span><strong>Tarde:</strong> Conducción de 45 min hasta <strong>Santander</strong>. Caminata larga por la <strong>Península de la Magdalena</strong> bordeando el mar hasta el palacio real.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🌆</span>
+          <span>Paseo por el centro al caer la tarde y descanso frente a la bahía.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🚐</span>
+          <span><strong>Pernocta</strong> en el área urbana de autocaravanas de Santander.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- DÍA 4 - JUEVES 03 SEP -->
+    <section class="card p-5 md:p-8 mb-6 md:mb-8">
+      <div class="flex items-center justify-between mb-3">
+        <span class="day-badge">Día 4 · Jue 03 Sep</span>
+        <span class="cat-sticker text-2xl">😻</span>
+      </div>
+      <h2 class="text-xl md:text-2xl font-bold text-cozy mb-1">Santillana del Mar & Bárcena Mayor</h2>
+      <p class="text-sm text-cozy/50 mb-4">Villa medieval · Montaña · Saja-Besaya</p>
+
+      <div class="grid grid-cols-2 gap-3 mb-4">
+        <img
+          class="section-img section-img-sm"
+          src="https://images.unsplash.com/photo-1585409677894-44d0fc0c6ed0?w=600&q=80"
+          alt="Santillana del Mar"
+          loading="lazy"
+        />
+        <img
+          class="section-img section-img-sm"
+          src="https://images.unsplash.com/photo-1585409677894-44d0fc0c6ed0?w=600&q=80"
+          alt="Bárcena Mayor"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="space-y-3 text-cozy/80 text-sm md:text-base leading-relaxed">
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🏘️</span>
+          <span><strong>Mañana:</strong> Desplazamiento de 30 min hasta <strong>Santillana del Mar</strong>. Paseo por sus calles empedradas de la villa medieval.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🏔️</span>
+          <span><strong>Tarde:</strong> Viaje de 50 min hacia el interior del <strong>Parque Natural Saja-Besaya</strong> hasta el pueblo de montaña <strong>Bárcena Mayor</strong>.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🌼</span>
+          <span>Paseo de desconexión entre sus casonas montañesas de piedra y madera y balconadas floridas.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🌲</span>
+          <span><strong>Pernocta</strong> en el aparcamiento de Bárcena Mayor en pleno valle.</span>
+        </p>
+      </div>
+
+      <div class="mt-4 flex justify-end">
+        <span class="cat-sticker text-3xl">🌿</span>
+      </div>
+    </section>
+
+    <!-- DÍA 5 - VIERNES 04 SEP -->
+    <section class="card p-5 md:p-8 mb-6 md:mb-8">
+      <div class="flex items-center justify-between mb-3">
+        <span class="day-badge">Día 5 · Vie 04 Sep</span>
+        <span class="cat-sticker text-2xl">🙀</span>
+      </div>
+      <h2 class="text-xl md:text-2xl font-bold text-cozy mb-1">Senderismo & Guerras Cántabras</h2>
+      <p class="text-sm text-cozy/50 mb-4">Bosque cántabro · Historia viva</p>
+
+      <div class="grid grid-cols-2 gap-3 mb-4">
+        <img
+          class="section-img section-img-sm"
+          src="https://images.unsplash.com/photo-1518495973-e8e5e2c8a3d9?w=600&q=80"
+          alt="Bosque Saja-Besaya"
+          loading="lazy"
+        />
+        <img
+          class="section-img section-img-sm"
+          src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80"
+          alt="Guerras Cántabras"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="space-y-3 text-cozy/80 text-sm md:text-base leading-relaxed">
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🥾</span>
+          <span><strong>Mañana:</strong> Caminata corta por los <strong>senderos verdes</strong> que parten de Bárcena Mayor en el bosque cántabro.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">⚔️</span>
+          <span><strong>Tarde:</strong> Conducción de 35 min hasta <strong>Los Corrales de Buelna</strong> — <strong>Fiestas de las Guerras Cántabras</strong>.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🏛️</span>
+          <span>Recreación histórica de la resistencia celta contra el Imperio Romano. Desfiles de tribus, campamento de la época, mercados y representaciones libres en la calle.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🛌</span>
+          <span><strong>Pernocta</strong> en la zona.</span>
+        </p>
+      </div>
+
+      <div class="mt-4 flex justify-end gap-2">
+        <span class="cat-sticker text-2xl">🗡️</span>
+        <span class="cat-sticker text-2xl">🐈</span>
+      </div>
+    </section>
+
+    <!-- DÍA 6 - SÁBADO 05 SEP -->
+    <section class="card p-5 md:p-8 mb-6 md:mb-8">
+      <div class="flex items-center justify-between mb-3">
+        <span class="day-badge">Día 6 · Sáb 05 Sep</span>
+        <span class="cat-sticker text-2xl">😽</span>
+      </div>
+      <h2 class="text-xl md:text-2xl font-bold text-cozy mb-1">Regreso a Bilbao & Vuelo a Casa</h2>
+      <p class="text-sm text-cozy/50 mb-4">Despedida · Hasta pronto</p>
+
+      <div class="relative mb-4">
+        <img
+          class="section-img"
+          src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1b0?w=800&q=80"
+          alt="Bilbao"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="space-y-3 text-cozy/80 text-sm md:text-base leading-relaxed">
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">☕</span>
+          <span><strong>Mañana:</strong> Desayuno en la camper y trayecto de vuelta hacia la base de <strong>Bilbao</strong> (1 hora).</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🧹</span>
+          <span><strong>Tarde:</strong> Limpieza, repostaje y <strong>devolución</strong> de la furgoneta.</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <span class="text-lg mt-1">🛩️</span>
+          <span>Traslado al aeropuerto de Bilbao para coger el vuelo directo de <strong>regreso a Málaga</strong>.</span>
+        </p>
+      </div>
+
+      <div class="mt-4 text-center">
+        <span class="cat-sticker text-4xl">❤️</span>
+      </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="divider my-8"></div>
+
+    <!-- FOOTER -->
+    <footer class="text-center text-cozy/60 text-sm space-y-2 pb-8">
+      <div class="flex justify-center gap-4 text-3xl">
+        <span class="cat-sticker">🐱</span>
+        <span class="cat-sticker">❤️</span>
+        <span class="cat-sticker">😺</span>
+        <span class="cat-sticker">❤️</span>
+        <span class="cat-sticker">🐈</span>
+      </div>
+      <p class="font-medium text-cozy/80 mt-3">Hecho con todo mi amor para ti ❤️</p>
+      <p class="text-xs text-cozy/40">Espero que disfrutemos juntos esta aventura por el norte</p>
+      <p class="text-xs text-cozy/40 mt-1">🐱🐱🐱</p>
+    </footer>
+
+  </div>
+
+  <!-- SURPRISE BUTTON -->
+  <div class="sticky bottom-6 flex justify-center z-20 px-4">
+    <button onclick="mostrarSorpresa()" class="btn-heart text-white font-semibold px-6 py-3 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 text-sm md:text-base">
+      <span>❤️</span>
+      <span>¡Toca para una sorpresa!</span>
+      <span>🐱</span>
+    </button>
+  </div>
+
+  <!-- MODAL SORPRESA -->
+  <div id="modalSorpresa" class="fixed inset-0 z-50 hidden flex items-center justify-center px-4" style="background: rgba(0,0,0,0.4); backdrop-filter: blur(4px);">
+    <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 md:p-8 max-w-sm w-full text-center shadow-2xl border border-white/60 relative">
+      <button onclick="cerrarSorpresa()" class="absolute top-3 right-3 text-cozy/40 hover:text-cozy/70 text-2xl">&times;</button>
+      <div class="text-6xl mb-4">😻</div>
+      <h3 class="text-xl font-bold text-cozy mb-2">¡Te quiero mucho!</h3>
+      <p class="text-cozy/70 mb-4">Gracias por ser quien eres. Este viaje promete ser increíble porque lo haré contigo.</p>
+      <div class="flex justify-center gap-3 text-4xl mb-4">
+        <span>🐱</span><span>❤️</span><span>😺</span><span>💕</span><span>🐈</span>
+      </div>
+      <p class="text-cozy/50 text-sm">Nos vemos muy pronto, mi amor 💕</p>
+      <img
+        class="w-24 h-24 mx-auto mt-4 rounded-2xl object-cover shadow-md"
+        src="https://media.tenor.com/SNL9_xOK8FQAAAAi/cute-cat.gif"
+        alt="Cute cat"
+        loading="lazy"
+      />
+    </div>
+  </div>
+
+  <script>
+    function mostrarSorpresa() {
+      document.getElementById('modalSorpresa').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function cerrarSorpresa() {
+      document.getElementById('modalSorpresa').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('modalSorpresa').addEventListener('click', function(e) {
+      if (e.target === this) cerrarSorpresa();
+    });
+  </script>
+
+</body>
+</html>
